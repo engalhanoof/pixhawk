@@ -1,0 +1,25 @@
+#!nsh
+#
+# @name Target Drone
+#
+# @type Airecraft
+# @class Plane
+#
+# @output MAIN1 left aileron
+# @output MAIN2 right aileron
+# @output MAIN3 left elevator
+# @output MAIN4 right elevator
+# @output MAIN5 NoseWheel
+# @output MAIN6 throttle
+
+sh /etc/init.d/rc.fw_defaults
+
+if [ $AUTOCNF == yes ]
+then
+	param set NAV_LOITER_RAD 150
+	param set FW_AIRSPD_MAX 50
+	param set FW_AIRSPD_MIN 25
+	param set FW_AIRSPD_TRIM 35
+fi
+
+set MIXER TARGETDRONE

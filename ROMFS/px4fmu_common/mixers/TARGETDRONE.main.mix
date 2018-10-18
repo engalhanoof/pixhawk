@@ -1,17 +1,22 @@
 Target Drone mixer for PX4FMU
 ===========================
-/////
 
 Inputs to the mixer come from channel group 0 (vehicle attitude), channels 0
 (roll), 1 (pitch), 2 (yaw), and 3 (thrust).
 
 See the README for more information on the scaler format.
 
+// Outputs are always in order of port number on the Pixhawk. So the first combination is output1, second 2, etc. al the way up to 16.
+// If you need to leave one blank, you put a Z: line in
+
 1: Left Aileron.
 
+// M: tells us how many inputs to mix. For each input we need an S: line. So for M = 1 we have one S: line, M=2 2 S: lines, and so on.
 M: 1
+// (channel group) (channel) (-ve scaling) (+ve scaling) (offset) (-ve pwm scale) (+ve pwm scale). The last two should nver need to be changed.
 S: 0 0  -10000  -10000      0 -10000  10000
 ////////////////////////////////////////////////////
+
 
 2: Right Aileron.
 
